@@ -1,6 +1,7 @@
 # 概要
 
 下記のECサイト表示順最適化に関する論文のオマージュです。
+
 https://www.frontiersin.org/articles/10.3389/fcomp.2019.00002/full
 
 ## 考え方

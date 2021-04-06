@@ -1,0 +1,8 @@
+model_obj_path : "/root/models/effnet/saved_model.xml"
+model_scene_path : "/root/models/intel/image-retrieval-0001/FP16-INT8/image-retrieval-0001.xml"
+sqlite_path : 'sqlite:///image_double_features.sqlite3'
+ngt_obj_path : "img_feat_objective"
+ngt_scene_path : "img_feat_scenary"
+images_dir : "/root/images"
+tumnail_dir : "static/thums"
+static_dir : "static"

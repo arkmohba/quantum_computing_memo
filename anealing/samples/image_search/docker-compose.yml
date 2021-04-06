@@ -1,0 +1,14 @@
+version: '2.4'
+services: 
+    searcher:
+        build: .
+        tty: true
+        privileged: true
+        working_dir: /root
+        ports:
+            - 8080:5000
+        user: "0"
+        volumes:
+            - ./scripts:/root/scripts
+            - ../dataset/COCO/train2017:/root/images
+        command: /bin/bash

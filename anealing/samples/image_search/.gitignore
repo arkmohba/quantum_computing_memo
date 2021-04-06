@@ -1,0 +1,11 @@
+*.h5
+.vscode
+effnet
+*.pyc
+*.jpg
+*.gzip
+*.sqlite3
+scripts/img_feat*/*
+scripts/static/thums
+*.xml
+*.code-workspace

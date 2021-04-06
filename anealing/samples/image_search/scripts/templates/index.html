@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Upload{% endblock %}
+
+{% block content %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="/static/css/style.css">
+<div>
+  <h1 id="upload">UPLOAD</h1>
+  <form method="post" action="/upload" enctype="multipart/form-data">
+
+    <div class="form-group">
+      <input type="file" id="image_file" name="image_file" class="col-sm-4" class="form-control">
+      <select name="n_search">
+        <option value="5"  selected>5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+      <input type="submit" value="送信" class="btn btn-primary" class="form-control" disabled >
+    </div class="form-group">
+    <div class="form-group">
+      score_for
+      <select name="score_for">
+        <option value="objective" selected>objective</option>
+        <option value="scenary">scenary</option>
+      </select>
+      sort_for
+      <select name="sort_for">
+        <option value="objective">objective</option>
+        <option value="scenary" selected>scenary</option>
+      </select>
+    </div>
+  </form>
+  {% if results %}
+  <div>
+    <h1>クエリイメージ</h1>
+    <p><img src="{{query_img}}" alt="{{クエリ画像}}"></p>
+  </div>
+  <h1>検索結果</h1>
+  <div class="card card-body">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        <span style="width:100px;float:left;" >scored</span><span style="margin-left:110px;width:100px;float:left;">sorted</span>
+      </li>
+      {% for file_path, dist, file_path2, dist2 in results %}
+      <li class="list-group-item list-group-item-info">
+        <span style="width:100px;float:left;"><img src="{{file_path}}" alt="{{file_path}}"></span><span style="margin-left:110px;width:100px;float:left;"><img src="{{file_path2}}" alt="{{file_path2}}" ></span>
+      </li>
+      {% endfor %}
+    </ul class="list-group">
+  </div class="card card-body">
+  {% endif %}
+  <script type="text/javascript">
+    $(document).ready(
+    function(){
+        $('input:file').change(
+            function(){
+                if ($(this).val()) {
+                    $('input:submit').attr('disabled',false);
+                } 
+            }
+            );
+    });
+  </script>
+</div>
+{% endblock %}
